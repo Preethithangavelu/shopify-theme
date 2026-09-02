@@ -1,17 +1,26 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero-banner",
-      "settings": { "autoplay": true, "autoplay_speed": 5 },
       "blocks": {
         "slide1": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/TRAXLTBP-6251_1.webp",
             "height": 560,
             "overlay_opacity": 30,
             "heading": "New Season Arrivals",
             "heading_size": "xlarge",
-            "heading_color": "#FFFFFF",
+            "heading_color": "#ffffff",
             "subheading": "<p>Fresh styles, made to last.</p>",
             "text_align": "center",
             "content_position": "middle",
@@ -21,13 +30,59 @@
           }
         }
       },
-      "block_order": ["slide1"]
+      "block_order": [
+        "slide1"
+      ],
+      "settings": {
+        "autoplay": true,
+        "autoplay_speed": 5
+      }
     },
     "featured": {
       "type": "featured-products",
+      "blocks": {
+        "p1": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "p2": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "p3": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "p4": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "p5": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ],
       "settings": {
         "heading": "Bestsellers",
         "heading_size": "large",
+        "heading_color": "",
         "heading_align": "center",
         "subheading": "<p>Hand-picked favorites from our shop.</p>",
         "columns_desktop": "5",
@@ -35,17 +90,10 @@
         "button_label": "View all products",
         "button_link": "/pages/shop",
         "button_style": "outline",
+        "bg_color": "",
         "padding_top": 60,
         "padding_bottom": 60
-      },
-      "blocks": {
-        "p1": { "type": "product", "settings": {} },
-        "p2": { "type": "product", "settings": {} },
-        "p3": { "type": "product", "settings": {} },
-        "p4": { "type": "product", "settings": {} },
-        "p5": { "type": "product", "settings": {} }
-      },
-      "block_order": ["p1", "p2", "p3", "p4", "p5"]
+      }
     },
     "story": {
       "type": "image-with-text",
@@ -53,29 +101,81 @@
         "layout": "image-left",
         "heading": "Crafted with care",
         "heading_size": "medium",
+        "heading_color": "",
         "body": "<p>Every product is designed thoughtfully and made to last, using quality materials sourced responsibly.</p>",
+        "body_size": 16,
+        "text_color": "",
         "text_align": "left",
         "button_label": "Our story",
         "button_link": "/pages/about",
         "button_style": "outline",
+        "bg_color": "",
         "padding_top": 60,
         "padding_bottom": 60
       }
     },
     "testimonials": {
       "type": "testimonials",
-      "settings": { "heading": "What customers say", "padding_top": 60, "padding_bottom": 60 },
       "blocks": {
-        "t1": { "type": "testimonial", "settings": { "rating": 5, "quote": "Fast shipping and beautiful quality. Highly recommend!", "author": "Ava R." } },
-        "t2": { "type": "testimonial", "settings": { "rating": 5, "quote": "Exactly as described, and the packaging was lovely.", "author": "Noah K." } },
-        "t3": { "type": "testimonial", "settings": { "rating": 4, "quote": "Great value for the price. Will shop again.", "author": "Maya P." } }
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Fast shipping and beautiful quality. Highly recommend!",
+            "author": "Ava R."
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Exactly as described, and the packaging was lovely.",
+            "author": "Noah K."
+          }
+        },
+        "t3": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 4,
+            "quote": "Great value for the price. Will shop again.",
+            "author": "Maya P."
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3"]
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {
+        "heading": "What customers say",
+        "heading_color": "",
+        "bg_color": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     },
     "newsletter": {
       "type": "newsletter",
-      "settings": { "heading": "Join our newsletter", "padding_top": 60, "padding_bottom": 60 }
+      "settings": {
+        "heading": "Join our newsletter",
+        "heading_size": "medium",
+        "heading_color": "",
+        "subheading": "<p>Get 10% off your first order.</p>",
+        "placeholder": "Email address",
+        "button_label": "Subscribe",
+        "button_style": "solid",
+        "bg_color": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
-  "order": ["hero", "featured", "story", "testimonials", "newsletter"]
+  "order": [
+    "hero",
+    "featured",
+    "story",
+    "testimonials",
+    "newsletter"
+  ]
 }
