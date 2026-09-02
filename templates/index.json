@@ -115,6 +115,26 @@
         "padding_bottom": 60
       }
     },
+    "rich_text_LzABDc": {
+      "type": "rich-text",
+      "name": "Rich text",
+      "settings": {
+        "heading": "About our story",
+        "heading_size": "large",
+        "heading_weight": "bold",
+        "heading_color": "",
+        "body": "<p>Tell your brand story here.</p>",
+        "body_size": 16,
+        "text_color": "",
+        "text_align": "center",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "solid",
+        "bg_color": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "testimonials": {
       "type": "testimonials",
       "blocks": {
@@ -176,6 +196,7 @@
     "hero",
     "featured",
     "story",
+    "rich_text_LzABDc",
     "testimonials",
     "newsletter"
   ]
