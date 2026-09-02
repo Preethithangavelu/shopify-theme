@@ -1,0 +1,19 @@
+<div class="section main-page">
+  <div class="container container--narrow">
+    {%- if section.settings.show_title -%}
+      {% render 'heading', text: page.title, tag: 'h1', size: 'large', align: 'left', weight: 'bold' %}
+    {%- endif -%}
+    <div class="rich-text__body">
+      {{ page.content }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Page content",
+  "settings": [
+    { "type": "checkbox", "id": "show_title", "label": "Show page title", "default": true }
+  ]
+}
+{% endschema %}

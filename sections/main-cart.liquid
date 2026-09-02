@@ -1,0 +1,31 @@
+<div class="section main-cart">
+  <div class="container">
+    <h1>Your cart</h1>
+    {%- if cart.item_count == 0 -%}
+      <p>Your cart is empty. <a href="{{ routes.all_products_collection_url }}">Continue shopping</a></p>
+    {%- else -%}
+      {% form 'cart', cart %}
+        <table class="cart-table">
+          <thead><tr><th>Product</th><th>Price</th><th>Qty</th><th>Total</th></tr></thead>
+          <tbody>
+            {%- for item in cart.items -%}
+              <tr>
+                <td>
+                  <a href="{{ item.url }}">{{ item.product.title }}</a>
+                  {%- if item.variant.title != 'Default Title' -%}<br><small>{{ item.variant.title }}</small>{%- endif -%}
+                </td>
+                <td>{{ item.original_price | money }}</td>
+                <td><input type="number" name="updates[]" value="{{ item.quantity }}" min="0"></td>
+                <td>{{ item.final_line_price | money }}</td>
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+        <p class="cart-subtotal">Subtotal: {{ cart.total_price | money }}</p>
+        <button type="submit" name="update" class="button button--outline">Update cart</button>
+        <button type="submit" name="checkout" class="button button--solid">Checkout</button>
+      {% endform %}
+    {%- endif -%}
+  </div>
+</div>
+{% schema %}{ "name": "Cart", "settings": [] }{% endschema %}

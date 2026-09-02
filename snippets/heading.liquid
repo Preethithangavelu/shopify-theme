@@ -1,0 +1,32 @@
+{% comment %}
+  Renders a fully-styleable heading.
+  Usage: {% render 'heading',
+    text: section.settings.heading,
+    tag: 'h2',
+    size: section.settings.heading_size,
+    align: section.settings.heading_align,
+    color: section.settings.heading_color,
+    weight: section.settings.heading_weight,
+    transform: section.settings.heading_transform,
+    subtext: section.settings.subheading
+  %}
+{% endcomment %}
+
+{%- liquid
+  assign tag = tag | default: 'h2'
+  assign size = size | default: 'medium'
+  assign align = align | default: 'center'
+  assign weight = weight | default: 'bold'
+  assign transform = transform | default: 'none'
+-%}
+
+{%- if text != blank -%}
+  <{{ tag }}
+    class="heading heading--{{ size }} heading--{{ align }} heading--{{ weight }} heading--{{ transform }}"
+    {% if color != blank %}style="color: {{ color }};"{% endif %}
+  >{{ text }}</{{ tag }}>
+{%- endif -%}
+
+{%- if subtext != blank -%}
+  <div class="heading__subtext heading--{{ align }}">{{ subtext }}</div>
+{%- endif -%}

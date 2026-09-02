@@ -1,0 +1,54 @@
+{
+  "sections": {
+    "banner": {
+      "type": "page-banner",
+      "settings": {
+        "heading": "About Us",
+        "heading_size": "xlarge",
+        "subheading": "<p>Learn more about our story and values.</p>",
+        "text_align": "center",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "story": {
+      "type": "image-with-text",
+      "settings": {
+        "layout": "image-left",
+        "heading": "How it all started",
+        "heading_size": "medium",
+        "body": "<p>We started as a small studio with one goal: make products people love to use every day. Today we work with makers around the world to bring you quality, design, and honesty in everything we sell.</p>",
+        "text_align": "left",
+        "padding_top": 60,
+        "padding_bottom": 20
+      }
+    },
+    "mission": {
+      "type": "image-with-text",
+      "settings": {
+        "layout": "image-right",
+        "heading": "Our mission",
+        "heading_size": "medium",
+        "body": "<p>To create thoughtfully designed goods that last, while treating our customers, makers, and planet with respect.</p>",
+        "text_align": "left",
+        "padding_top": 20,
+        "padding_bottom": 60
+      }
+    },
+    "team_note": {
+      "type": "rich-text",
+      "settings": {
+        "heading": "Meet the team",
+        "heading_size": "medium",
+        "body": "<p>We're a small, passionate group dedicated to great products and great service. Have a question? We'd love to hear from you.</p>",
+        "text_align": "center",
+        "button_label": "Contact us",
+        "button_link": "/pages/contact",
+        "button_style": "outline",
+        "padding_top": 60,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": ["banner", "story", "mission", "team_note"]
+}

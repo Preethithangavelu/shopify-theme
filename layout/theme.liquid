@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>
+    {{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  <link rel="canonical" href="{{ canonical_url }}">
+  {% if settings.favicon %}
+    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+  {% endif %}
+
+  {{ content_for_header }}
+
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+ {% style %}
+  {{ settings.type_header_font | font_face: font_display: 'swap' }}
+  {{ settings.type_body_font | font_face: font_display: 'swap' }}
+ {% endstyle %}
+
+  <style>
+    :root{
+      --color-background: {{ settings.color_background }};
+      --color-text: {{ settings.color_text }};
+      --color-primary: {{ settings.color_primary }};
+      --color-primary-text: {{ settings.color_primary_text }};
+      --color-secondary: {{ settings.color_secondary }};
+      --color-border: {{ settings.color_border }};
+      --color-header-bg: {{ settings.color_header_bg }};
+      --color-header-text: {{ settings.color_header_text }};
+      --color-footer-bg: {{ settings.color_footer_bg }};
+      --color-footer-text: {{ settings.color_footer_text }};
+      --font-heading: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+      --font-heading-weight: {{ settings.type_header_font.weight }};
+      --font-heading-scale: {{ settings.type_header_scale }}%;
+      --font-body: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+      --font-body-weight: {{ settings.type_body_font.weight }};
+      --font-body-scale: {{ settings.type_body_scale }}%;
+      --page-width: {{ settings.page_width }}px;
+      --section-spacing: {{ settings.spacing_sections }}px;
+      --radius: {{ settings.corner_radius }};
+      --button-shape: {% if settings.button_shape == 'pill' %}999px{% elsif settings.button_shape == 'rounded' %}8px{% else %}0px{% endif %};
+    }
+  </style>
+</head>
+<body class="template-{{ request.page_type }}">
+
+  <a class="skip-to-content" href="#MainContent">Skip to content</a>
+
+  {% section 'header' %}
+
+  <main id="MainContent" role="main">
+    {{ content_for_layout }}
+  </main>
+
+  {% section 'footer' %}
+
+  {{ 'theme.js' | asset_url | script_tag }}
+</body>
+</html>

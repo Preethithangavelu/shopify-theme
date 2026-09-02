@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "banner": {
+      "type": "page-banner",
+      "settings": {
+        "heading": "Contact Us",
+        "heading_size": "xlarge",
+        "subheading": "<p>We'd love to hear from you. Send us a message below.</p>",
+        "text_align": "center",
+        "padding_top": 80,
+        "padding_bottom": 40
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "Send us a message",
+        "heading_size": "large",
+        "heading_align": "center",
+        "show_info": true,
+        "address": "123 Market Street, Melbourne VIC 3000",
+        "phone": "+61 3 1234 5678",
+        "email": "hello@yourstore.com",
+        "hours": "<p>Mon–Fri: 9am–5pm<br>Sat–Sun: Closed</p>",
+        "padding_top": 20,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": ["banner", "form"]
+}

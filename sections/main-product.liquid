@@ -1,0 +1,58 @@
+<div class="section main-product">
+  <div class="container product-detail">
+    <div class="product-detail__media">
+      {%- if product.featured_image -%}
+        <img src="{{ product.featured_image | image_url: width: 900 }}" alt="{{ product.featured_image.alt | escape }}" id="ProductMainImage">
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+      {%- if product.images.size > 1 -%}
+        <div class="product-detail__thumbs">
+          {%- for image in product.images -%}
+            <img src="{{ image | image_url: width: 150 }}" alt="{{ image.alt | escape }}" class="product-detail__thumb" data-thumb data-full="{{ image | image_url: width: 900 }}">
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="product-detail__info">
+      <h1>{{ product.title }}</h1>
+      <div class="product-detail__price">
+        {%- if product.compare_at_price > product.price -%}
+          <span class="price price--sale">{{ product.price | money }}</span>
+          <span class="price price--compare">{{ product.compare_at_price | money }}</span>
+        {%- else -%}
+          <span class="price">{{ product.price | money }}</span>
+        {%- endif -%}
+      </div>
+
+      <div class="product-detail__description">{{ product.description }}</div>
+
+      {% form 'product', product %}
+        {%- unless product.has_only_default_variant -%}
+          {%- for option in product.options_with_values -%}
+            <label>{{ option.name }}</label>
+            <select name="options[{{ option.name | escape }}]">
+              {%- for value in option.values -%}
+                <option value="{{ value | escape }}">{{ value }}</option>
+              {%- endfor -%}
+            </select>
+          {%- endfor -%}
+        {%- endunless -%}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <label for="Quantity">Quantity</label>
+        <input type="number" id="Quantity" name="quantity" value="1" min="1">
+        <button type="submit" class="button button--solid" {% unless product.available %}disabled{% endunless %}>
+          {%- if product.available -%}Add to cart{%- else -%}Sold out{%- endif -%}
+        </button>
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product information",
+  "settings": []
+}
+{% endschema %}

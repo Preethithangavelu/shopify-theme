@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "banner": {
+      "type": "page-banner",
+      "settings": { "heading": "Collection", "heading_size": "large", "text_align": "left", "padding_top": 40, "padding_bottom": 20 }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": { "show_heading": false, "columns_desktop": "4", "columns_mobile": "2", "padding_top": 20, "padding_bottom": 60 }
+    }
+  },
+  "order": ["banner", "main"]
+}

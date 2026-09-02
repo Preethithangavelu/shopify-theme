@@ -1,0 +1,77 @@
+<footer class="site-footer" style="background:{{ section.settings.bg_color | default: 'var(--color-footer-bg)' }}; color:{{ section.settings.text_color | default: 'var(--color-footer-text)' }};">
+  <div class="container site-footer__inner">
+
+    <div class="site-footer__brand">
+      {%- if section.settings.logo != blank -%}
+        <img src="{{ section.settings.logo | image_url: width: 160 }}" alt="{{ shop.name }}" width="160">
+      {%- else -%}
+        <p class="site-footer__brand-name">{{ shop.name }}</p>
+      {%- endif -%}
+      {%- if section.settings.tagline != blank -%}
+        <p class="site-footer__tagline">{{ section.settings.tagline }}</p>
+      {%- endif -%}
+      {% render 'social-icons' %}
+    </div>
+
+    <div class="site-footer__columns">
+      {%- for block in section.blocks -%}
+        <div class="site-footer__column" {{ block.shopify_attributes }}>
+          <h3>{{ block.settings.title }}</h3>
+          <ul>
+            {%- for link in block.settings.menu.links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.show_newsletter -%}
+      <div class="site-footer__newsletter">
+        <h3>{{ section.settings.newsletter_heading }}</h3>
+        {% form 'customer', class: 'newsletter-form' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="email" name="contact[email]" placeholder="Email address" required>
+          <button type="submit">Subscribe</button>
+          {%- if form.posted_successfully? -%}<p class="form-success">Thanks for subscribing!</p>{%- endif -%}
+        {% endform %}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="site-footer__bottom">
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Footer logo" },
+    { "type": "text", "id": "tagline", "label": "Tagline" },
+    { "type": "checkbox", "id": "show_newsletter", "label": "Show newsletter signup", "default": true },
+    { "type": "text", "id": "newsletter_heading", "label": "Newsletter heading", "default": "Join our newsletter" },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "bg_color", "label": "Background color" },
+    { "type": "color", "id": "text_color", "label": "Text color" }
+  ],
+  "blocks": [
+    {
+      "type": "link_column",
+      "name": "Link column",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Column heading", "default": "Quick links" },
+        { "type": "link_list", "id": "menu", "label": "Menu" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "default": {
+    "blocks": [
+      { "type": "link_column", "settings": { "title": "Shop" } },
+      { "type": "link_column", "settings": { "title": "Company" } }
+    ]
+  }
+}
+{% endschema %}

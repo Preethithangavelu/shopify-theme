@@ -1,0 +1,26 @@
+{
+  "current": {
+    "color_background": "#FFFFFF",
+    "color_text": "#1A1A1A",
+    "color_primary": "#1B4332",
+    "color_primary_text": "#FFFFFF",
+    "color_secondary": "#F5F3EE",
+    "color_border": "#E4E1D9",
+    "color_header_bg": "#FFFFFF",
+    "color_header_text": "#1A1A1A",
+    "color_footer_bg": "#1B4332",
+    "color_footer_text": "#F5F3EE",
+    "type_header_font": "work_sans_n7",
+    "type_header_scale": 100,
+    "type_body_font": "assistant_n4",
+    "type_body_scale": 100,
+    "page_width": 1280,
+    "spacing_sections": 48,
+    "corner_radius": "14px",
+    "button_style": "solid",
+    "button_shape": "rounded",
+    "card_image_ratio": "square",
+    "card_show_vendor": false,
+    "card_show_badge": true
+  }
+}

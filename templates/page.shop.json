@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "banner": {
+      "type": "page-banner",
+      "settings": {
+        "heading": "Shop",
+        "heading_size": "xlarge",
+        "subheading": "<p>Browse our full collection.</p>",
+        "text_align": "center",
+        "padding_top": 80,
+        "padding_bottom": 40
+      }
+    },
+    "products": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "All Products",
+        "heading_size": "large",
+        "heading_align": "center",
+        "columns_desktop": "5",
+        "columns_mobile": "2",
+        "padding_top": 20,
+        "padding_bottom": 80
+      },
+      "blocks": {
+        "p1": { "type": "product", "settings": {} },
+        "p2": { "type": "product", "settings": {} },
+        "p3": { "type": "product", "settings": {} },
+        "p4": { "type": "product", "settings": {} },
+        "p5": { "type": "product", "settings": {} }
+      },
+      "block_order": ["p1", "p2", "p3", "p4", "p5"]
+    }
+  },
+  "order": ["banner", "products"]
+}

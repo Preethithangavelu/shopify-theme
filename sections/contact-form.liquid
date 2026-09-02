@@ -1,0 +1,79 @@
+<div class="section contact-section" style="background:{{ section.settings.bg_color | default: 'transparent' }}; padding-top:{{ section.settings.padding_top }}px; padding-bottom:{{ section.settings.padding_bottom }}px;">
+  <div class="container container--narrow">
+    {% render 'heading',
+      text: section.settings.heading,
+      tag: 'h2',
+      size: section.settings.heading_size,
+      align: section.settings.heading_align,
+      color: section.settings.heading_color,
+      weight: 'bold',
+      subtext: section.settings.subheading
+    %}
+
+    <div class="contact-section__grid">
+      {% form 'contact', class: 'contact-form' %}
+        {%- if form.posted_successfully? -%}
+          <p class="form-success">Thanks for reaching out — we'll be in touch soon.</p>
+        {%- endif -%}
+        {%- if form.errors -%}
+          <p class="form-error">Please fill in required fields.</p>
+        {%- endif -%}
+
+        <label for="ContactFormName">Name</label>
+        <input type="text" id="ContactFormName" name="contact[name]" required>
+
+        <label for="ContactFormEmail">Email</label>
+        <input type="email" id="ContactFormEmail" name="contact[email]" value="{{ form.email }}" required>
+
+        <label for="ContactFormPhone">Phone (optional)</label>
+        <input type="tel" id="ContactFormPhone" name="contact[phone]">
+
+        <label for="ContactFormMessage">Message</label>
+        <textarea id="ContactFormMessage" name="contact[body]" rows="6" required></textarea>
+
+        <button type="submit" class="button button--{{ section.settings.button_style }}">{{ section.settings.button_label }}</button>
+      {% endform %}
+
+      {%- if section.settings.show_info -%}
+        <div class="contact-section__info">
+          {%- if section.settings.address != blank -%}<p>{{ section.settings.address }}</p>{%- endif -%}
+          {%- if section.settings.phone != blank -%}<p>{{ section.settings.phone }}</p>{%- endif -%}
+          {%- if section.settings.email != blank -%}<p><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></p>{%- endif -%}
+          {%- if section.settings.hours != blank -%}<div>{{ section.settings.hours }}</div>{%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact form",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Get in touch" },
+    { "type": "select", "id": "heading_size", "label": "Heading size", "options": [
+      { "value": "small", "label": "Small" }, { "value": "medium", "label": "Medium" }, { "value": "large", "label": "Large" }
+    ], "default": "large" },
+    { "type": "color", "id": "heading_color", "label": "Heading color" },
+    { "type": "select", "id": "heading_align", "label": "Heading alignment", "options": [
+      { "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }
+    ], "default": "center" },
+    { "type": "richtext", "id": "subheading", "label": "Subheading" },
+    { "type": "text", "id": "button_label", "label": "Submit button label", "default": "Send message" },
+    { "type": "select", "id": "button_style", "label": "Button style", "options": [
+      { "value": "solid", "label": "Solid" }, { "value": "outline", "label": "Outline" }
+    ], "default": "solid" },
+    { "type": "header", "content": "Store info" },
+    { "type": "checkbox", "id": "show_info", "label": "Show store info column", "default": true },
+    { "type": "text", "id": "address", "label": "Address" },
+    { "type": "text", "id": "phone", "label": "Phone" },
+    { "type": "text", "id": "email", "label": "Email" },
+    { "type": "richtext", "id": "hours", "label": "Hours", "default": "<p>Mon–Fri: 9am–5pm</p>" },
+    { "type": "header", "content": "Section" },
+    { "type": "color", "id": "bg_color", "label": "Background color" },
+    { "type": "range", "id": "padding_top", "label": "Top padding", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 60 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom padding", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 60 }
+  ],
+  "presets": [{ "name": "Contact form" }]
+}
+{% endschema %}

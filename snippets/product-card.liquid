@@ -1,0 +1,53 @@
+{% comment %}
+  Usage: {% render 'product-card', product: product %}
+{% endcomment %}
+
+{%- liquid
+  assign ratio_class = 'card__media--square'
+  if settings.card_image_ratio == 'portrait'
+    assign ratio_class = 'card__media--portrait'
+  elsif settings.card_image_ratio == 'adapt'
+    assign ratio_class = 'card__media--adapt'
+  endif
+-%}
+
+<div class="product-card">
+  <a href="{{ product.url }}" class="product-card__link">
+    <div class="product-card__media {{ ratio_class }}">
+      {%- if product.featured_image -%}
+        <img
+          src="{{ product.featured_image | image_url: width: 600 }}"
+          alt="{{ product.featured_image.alt | escape }}"
+          loading="lazy"
+          width="{{ product.featured_image.width }}"
+          height="{{ product.featured_image.height }}"
+        >
+      {%- else -%}
+        <div class="product-card__placeholder">{{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+      {%- endif -%}
+
+      {%- if settings.card_show_badge -%}
+        {%- if product.available == false -%}
+          <span class="badge badge--sold-out">Sold out</span>
+        {%- elsif product.compare_at_price > product.price -%}
+          <span class="badge badge--sale">Sale</span>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+
+    <div class="product-card__info">
+      {%- if settings.card_show_vendor and product.vendor != blank -%}
+        <p class="product-card__vendor">{{ product.vendor }}</p>
+      {%- endif -%}
+      <h3 class="product-card__title">{{ product.title }}</h3>
+      <div class="product-card__price">
+        {%- if product.compare_at_price > product.price -%}
+          <span class="price price--sale">{{ product.price | money }}</span>
+          <span class="price price--compare">{{ product.compare_at_price | money }}</span>
+        {%- else -%}
+          <span class="price">{{ product.price | money }}</span>
+        {%- endif -%}
+      </div>
+    </div>
+  </a>
+</div>
