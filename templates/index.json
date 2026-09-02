@@ -88,7 +88,7 @@
         "columns_desktop": "5",
         "columns_mobile": "2",
         "button_label": "View all products",
-        "button_link": "/pages/shop",
+        "button_link": "shopify://collections/all",
         "button_style": "outline",
         "bg_color": "",
         "padding_top": 60,
