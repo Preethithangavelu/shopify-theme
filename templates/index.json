@@ -108,7 +108,7 @@
         "text_color": "",
         "text_align": "left",
         "button_label": "Our story",
-        "button_link": "/pages/about",
+        "button_link": "shopify://pages/about-us",
         "button_style": "outline",
         "bg_color": "",
         "padding_top": 60,
