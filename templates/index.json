@@ -15,16 +15,16 @@
         "slide1": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/TRAXLTBP-6251_1.webp",
+            "image": "shopify://shop_images/theme_cover_image.jpg",
             "height": 560,
             "overlay_opacity": 0,
-            "heading": "New Season Arrivals",
+            "heading": "",
             "heading_size": "xlarge",
             "heading_color": "#ffffff",
             "subheading": "",
             "text_align": "center",
             "content_position": "middle",
-            "button_label": "Shop now",
+            "button_label": "",
             "button_link": "/pages/shop",
             "button_style": "solid"
           }
@@ -44,31 +44,31 @@
         "p1": {
           "type": "product",
           "settings": {
-            "product": "urban-commuter-bike"
+            "product": "the-3p-fulfilled-snowboard"
           }
         },
         "p2": {
           "type": "product",
           "settings": {
-            "product": "trailblazer-mountain-bike"
+            "product": "the-collection-snowboard-hydrogen"
           }
         },
         "p3": {
           "type": "product",
           "settings": {
-            "product": "velocity-road-racer"
+            "product": "the-collection-snowboard-oxygen"
           }
         },
         "p4": {
           "type": "product",
           "settings": {
-            "product": "junior-explorer-kids-bike"
+            "product": "the-compare-at-price-snowboard"
           }
         },
         "p5": {
           "type": "product",
           "settings": {
-            "product": "volt-e-city-bike"
+            "product": "the-complete-snowboard"
           }
         }
       },
@@ -98,7 +98,6 @@
     "story": {
       "type": "image-with-text",
       "settings": {
-        "image": "shopify://shop_images/TK26-Safety-HP-Vis-4x3.avif",
         "layout": "image-left",
         "heading": "Crafted with care",
         "heading_size": "medium",
