@@ -1,0 +1,81 @@
+{% comment %}
+  Editable Section 5 - rebuilt from hobro.digital's captured content as
+  real Shopify settings/blocks (not raw embedded HTML), so every field below
+  is editable from the theme editor sidebar, and cards can be added, removed,
+  and reordered as native blocks. Colors/font/alignment/image position below
+  are matched from the source page's own computed styles where available.
+{% endcomment %}
+<div class="ai-ed-section" id="ai-ed-{{ section.id }}">
+  
+  {% if section.settings.heading != blank %}<h2 class="ai-ed-heading">{{ section.settings.heading }}</h2>{% endif %}
+    {% if section.settings.subheading != blank %}<p class="ai-ed-subheading">{{ section.settings.subheading }}</p>{% endif %}
+    {% if section.settings.body_text != blank %}<div class="ai-ed-body">{{ section.settings.body_text | newline_to_br }}</div>{% endif %}
+    {% if section.settings.button_text != blank %}
+      <a href="{{ section.settings.button_link | default: '#' }}" class="ai-ed-button">{{ section.settings.button_text }}</a>
+    {% endif %}
+  {% if section.blocks.size > 0 %}
+  <div class="ai-ed-grid">
+    {% for block in section.blocks %}
+      <div class="ai-ed-card" {{ block.shopify_attributes }}>
+        {% if block.settings.image != blank %}<img src="{{ block.settings.image }}" class="ai-ed-card-img" loading="lazy" alt="">{% endif %}
+        {% if block.settings.title != blank %}<h3 class="ai-ed-card-title">{{ block.settings.title }}</h3>{% endif %}
+        {% if block.settings.description != blank %}<p class="ai-ed-card-desc">{{ block.settings.description }}</p>{% endif %}
+        {% if block.settings.link != blank %}<a href="{{ block.settings.link }}" class="ai-ed-card-link">Learn more</a>{% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+
+{% style %}
+#ai-ed-{{ section.id }} {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  font-family: PPNeueMontreal, Helvetica, Arial, sans-serif, sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+}
+#ai-ed-{{ section.id }} * { box-sizing: border-box; }
+#ai-ed-{{ section.id }} .ai-ed-heading { font-size: 32px; font-weight: 700; margin: 0 0 12px; }
+#ai-ed-{{ section.id }} .ai-ed-subheading { font-size: 18px; opacity: 0.8; margin: 0 0 16px; }
+#ai-ed-{{ section.id }} .ai-ed-body { font-size: 16px; line-height: 1.6; opacity: 0.9; margin: 0 0 20px; }
+#ai-ed-{{ section.id }} .ai-ed-button {
+  display: inline-block; padding: 12px 28px; border-radius: 999px;
+  background: rgb(255, 255, 255); color: #fff; text-decoration: none; font-weight: 600;
+}
+#ai-ed-{{ section.id }} .ai-ed-media img { width: 100%; height: auto; border-radius: 12px; display: block; }
+#ai-ed-{{ section.id }} .ai-ed-media-top { margin-bottom: 24px; }
+#ai-ed-{{ section.id }} .ai-ed-split {
+  display: flex; align-items: center; gap: 40px; text-align: left;
+}
+#ai-ed-{{ section.id }} .ai-ed-split-right { flex-direction: row-reverse; }
+#ai-ed-{{ section.id }} .ai-ed-split .ai-ed-media, #ai-ed-{{ section.id }} .ai-ed-split .ai-ed-text { flex: 1 1 0; min-width: 0; }
+@media (max-width: 749px) {
+  #ai-ed-{{ section.id }} .ai-ed-split { flex-direction: column; }
+}
+#ai-ed-{{ section.id }} .ai-ed-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px; margin-top: 32px;
+}
+#ai-ed-{{ section.id }} .ai-ed-card { background: #18181C; border-radius: 12px; padding: 20px; }
+#ai-ed-{{ section.id }} .ai-ed-card-img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px; }
+#ai-ed-{{ section.id }} .ai-ed-card-title { font-size: 18px; margin: 0 0 6px; }
+#ai-ed-{{ section.id }} .ai-ed-card-desc { font-size: 14px; opacity: 0.85; margin: 0; }
+#ai-ed-{{ section.id }} .ai-ed-card-link { display: inline-block; margin-top: 10px; color: rgb(255, 255, 255); font-weight: 600; text-decoration: none; }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Sec 5: Core Vision",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Core Vision" },
+    { "type": "textarea", "id": "body_text", "label": "Body text", "default": "We’ve created a cozy and nurturing space where creativity and technology fuse, enabling us to deliver exceptional results that truly resonate with your audience. As a close community of experienced and talented individuals, we are dedicated to realizing your vision with special attention to strategic details and a commitment to excellence. Our approach goes beyond traditional client-agency relationships; we prioritize building lasting collaborations that extend far beyond a single project - we want to help our clients transform, and then continue a digital journey by their side. Let’s challenge conventions and explore what’s next in digital." },
+    { "type": "text", "id": "button_text", "label": "Button text", "default": "hi@hobro.digital" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "Sec 5: Core Vision" }]
+}
+{% endschema %}

@@ -1,0 +1,25 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "section_5": {
+      "type": "ai-hobro-ed-sec-5",
+      "settings": {
+        "heading": "Core Vision",
+        "body_text": "We’ve created a cozy and nurturing space where creativity and technology fuse, enabling us to deliver exceptional results that truly resonate with your audience.\n\nAs a close community of experienced and talented individuals, we are dedicated to realizing your vision with special attention to strategic details and a commitment to excellence.\n\nOur approach goes beyond traditional client-agency relationships; we prioritize building lasting collaborations that extend far beyond a single project - we want to help our clients transform, and then continue a digital journey by their side.\n\nLet’s challenge conventions and explore what’s next in digital.",
+        "button_text": "hi@hobro.digital",
+        "button_link": "mailto:hi@hobro.digital"
+      }
+    }
+  },
+  "order": [
+    "section_5"
+  ]
+}
